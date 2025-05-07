@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Me amas?</title>
+  <style>
+    body {
+      background-color: pink;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff3366;
+    }
+
+    #gif {
+      width: 200px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 15px 30px;
+      margin: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Me amas? 💘</h1>
+  <img id="gif" src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif" alt="Cute gif" />
+
+  <br/>
+
+  <button id="yesBtn">Sí 💖</button>
+  <button id="noBtn">No 😢</button>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    let noClickCount = 0;
+
+    yesBtn.addEventListener('click', () => {
+      document.body.innerHTML = `
+        <h1>¡Lo sabia :3! 💞</h1>
+        <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Love" />
+        <p style="font-size: 1.5rem;">¡Te amo! </p>
+      `;
+    });
+
+    noBtn.addEventListener('click', () => {
+      noClickCount++;
+      const messages = [
+        "segura?",
+        "OYE >:c",
+        "ok po te dare una mas",
+        "Si le das de nuevo te mato",
+        "ayaaa",
+        ":c",
+        "Di que si ya!😖"
+      ];
+      if (noClickCount <= messages.length) {
+        noBtn.innerText = messages[noClickCount - 1];
+        yesBtn.style.fontSize = `${1.5 + noClickCount * 0.2}rem`;
+      } else {
+        noBtn.innerText = "😩";
+      }
+    });
+  </script>
+</body>
+</html>
